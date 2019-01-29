@@ -4,6 +4,8 @@ This project is broken up into a backend and frontend. The backend contains the 
 
 Run the following commands to get started:
 
+Clone or download this repo
+
 ```json
 virtualenv env
 pip install -r requirements.txt
