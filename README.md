@@ -9,5 +9,6 @@ virtualenv env
 pip install -r requirements.txt
 npm i
 npm run build
-python manage.py runserver
+python manage.py runserver (backend)
+npm start (frontend)
 ```
