@@ -12,6 +12,7 @@ class RegistrationForm extends React.Component {
   };
 
   handleSubmit = e => {
+    console.log('signup')
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
