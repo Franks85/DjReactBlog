@@ -31,7 +31,7 @@ class GroupViewSet(viewsets.ModelViewSet):
 class ArticleListView(ListAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    permission_classes = (permissions.AllowAny, )
+    permission_classes = (permissions.AllowAny,)
 
 
 class ArticleDetailView(RetrieveAPIView):
@@ -43,7 +43,7 @@ class ArticleDetailView(RetrieveAPIView):
 class ArticleCreateView(CreateAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    permission_classes = (permissions.IsAuthenticated, )
+    permission_classes = (permissions.IsAdminUser,)
 
 
 class ArticleUpdateView(UpdateAPIView):

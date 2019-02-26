@@ -7,6 +7,9 @@ import axios from "axios";
 const FormItem = Form.Item;
 
 class CustomForm extends React.Component {
+  state = {
+    errMessage: null
+  }
   handleFormSubmit = async (event, requestType, articleID) => {
     event.preventDefault();
 
@@ -29,7 +32,14 @@ class CustomForm extends React.Component {
           if (res.status === 201) {
             this.props.history.push(`/posts`);
           }
-        });
+        }).catch(err => {
+          if(err) {
+            this.setState({
+              errMessage: 'you have to be an admin user to create a post!'
+            })
+          }
+        })
+        ;
     } else if (requestType === "put") {
       await axios
         .put(`http://127.0.0.1:8000/api/${articleID}/update/`, postObj)
@@ -42,8 +52,10 @@ class CustomForm extends React.Component {
   };
 
   render() {
+    const {errMessage} = this.state;
     return (
       <div>
+        {errMessage && <p style={{color: 'red'}}>{errMessage}</p>}
         <Form
           onSubmit={event =>
             this.handleFormSubmit(

@@ -11,6 +11,7 @@ class ArticleList extends React.Component {
 
   fetchArticles = () => {
     axios.get("http://127.0.0.1:8000/api/").then(res => {
+      console.log(res)
       this.setState({
         articles: res.data.results
       });
@@ -49,3 +50,4 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(ArticleList);
+
